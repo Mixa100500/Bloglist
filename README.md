@@ -31,3 +31,14 @@
   <li>Redux</li>
   <li>HTML/CSS</li>
 </ul>
+
+<p>To run the application locally need my keys to access the mongo server, you use your environment variables in the env file:</p>
+<div>
+MONGODB_URI<br>
+PORT=3003<br>
+
+SECRET=jsonwebtoken<br>
+TEST_MONGODB_URI<br>
+</div>
+
+<p>To implement modngo.DB you will need three collections: users, comments, blogs.</p>
