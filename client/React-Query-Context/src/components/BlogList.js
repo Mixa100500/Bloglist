@@ -1,4 +1,4 @@
-import { Table } from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export const BlogList = ({ blogs }) => {
@@ -7,16 +7,19 @@ export const BlogList = ({ blogs }) => {
   }
 
   return (
-    <Table striped bordered variant='dark'>
-      <tbody>
-        {blogs.map(blog =>
-          <tr key={blog.id}>
-            <td>
-              <Link className='link' to={`/blogs/${blog.id}`}>{blog.title}</Link>
-            </td>
-          </tr>
-        )}
-      </tbody>
-    </Table>
+    <ListGroup className='list-links'>
+      {blogs.map(blog =>
+        <ListGroup.Item
+          key={blog.id}
+        >
+          <Link
+            className='link'
+            to={`/blogs/${blog.id}`}
+          >
+            {blog.title}
+          </Link>
+        </ListGroup.Item>
+      )}
+    </ListGroup>
   )
 }

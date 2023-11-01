@@ -5,13 +5,14 @@ import { useCreateBlog } from '../hooks/BlogButton'
 
 export const TogglableBlogForm = () => {
   const blogFormRef = useRef()
-  const createBlog = useCreateBlog(blogFormRef)
+  const manageFrom = useCreateBlog(blogFormRef)
 
   return (
     <Togglable buttonLabel='create new' ref={blogFormRef}>
       <BlogForm
-        createBlog={createBlog}
+        manageFrom={manageFrom}
       />
+      <hr />
     </Togglable>
   )
 }

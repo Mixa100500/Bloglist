@@ -1,4 +1,3 @@
-/* eslint-env node */
 module.exports = {
     "env": {
         "browser": true,
@@ -27,10 +26,6 @@ module.exports = {
           { 
             "SwitchCase": 1 
           }
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
         ],
         "quotes": [
             "error",

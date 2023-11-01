@@ -26,9 +26,9 @@ const Comments = () => {
       <hr className='new1'></hr>
       <h3>comments</h3>
       <CommentBlogForm blogId={id} />
-      <ListGroup >
+      <ListGroup className='list-border-bottom'>
         {comments.map(c =>
-          <ListGroup.Item className='dark' key={c.id}>
+          <ListGroup.Item key={c.id}>
             {c.content}
           </ListGroup.Item>
         )}

@@ -17,12 +17,16 @@ export const Users = () => {
   }
   const users = usersQuery.data
 
+  const styleLink = {
+    color: 'inherit'
+  }
+
   return (
     <div>
       <h2>Users</h2>
-      <Table striped variant='dark' bordered>
+      <Table bordered className='striped'>
         <thead>
-          <tr>
+          <tr className='tableHeader'>
             <th>
               usernames
             </th>
@@ -32,7 +36,14 @@ export const Users = () => {
         <tbody>
           {users.map(a =>
             <tr key={a.id}>
-              <td><Link to={`/users/${a.id}`}>{a.name}</Link></td>
+              <td className='link-cell'>
+                <Link
+                  to={`/users/${a.id}`}
+                  style={styleLink}
+                >
+                  {a.name}
+                </Link>
+              </td>
               <td>{a.blogs.length}</td>
             </tr>
           )}

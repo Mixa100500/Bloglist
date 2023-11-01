@@ -28,10 +28,15 @@ export const useCreateBlog = (blogFormRef) => {
   const notifyWith = useNotifyWith()
   const errorWith = useErrorWith()
 
+  const toggleVisiblity = () => {
+    blogFormRef.current.toggleVisiblity()
+  }
+
+
   const createBlog = async (blog) => {
     try {
       await newBlogMutation.mutateAsync(blog)
-      blogFormRef.current.toggleVisiblity()
+      toggleVisiblity()
       notifyWith(`a new blog ${blog.title} ${blog.author} added`)
 
     } catch (error) {
@@ -39,7 +44,7 @@ export const useCreateBlog = (blogFormRef) => {
     }
   }
 
-  return createBlog
+  return [createBlog, toggleVisiblity]
 }
 
 export const useLikeBlog = () => {

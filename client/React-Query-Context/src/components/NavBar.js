@@ -15,8 +15,9 @@ export const NavBar = () => {
   const navBar = {
     padding: 5,
     display: 'flex',
-    justifyContent: 'space-between',
+    gap: '1rem',
     alignItems: 'center',
+    borderBottom: 'solid var(--secondary-color) 1px'
   }
 
   const navLinks = {
@@ -25,27 +26,46 @@ export const NavBar = () => {
   }
 
   const styleLinkNav = {
-    padding: 5,
-    color: 'inherit',
+    padding: '0.5em 1em',
     textDecoration: 'none',
+    borderRadius: '0.3em'
+  }
+  const styleMargin = {
+    margin: 'revert'
+  }
+
+  const topNavigationMain = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flex: '1 1',
   }
 
   return (
-    <div style={navBar} className='light-dark'>
-      <div style={navLinks}>
-        <Link style={styleLinkNav} to={'/'}>
-          home
-        </Link>
-        <Link style={styleLinkNav} to={'/users'}>
-          users
-        </Link>
+    <header style={navBar}>
+      <div  className='title' style={styleMargin}>Blog app</div>
+      <div
+        className='topNavigationMain'
+        style={topNavigationMain}
+      >
+        <div style={navLinks}>
+          <Link style={styleLinkNav} to={'/'}>
+            Home
+          </Link>
+          <Link style={styleLinkNav} to={'/users'}>
+            Users
+          </Link>
+        </div>
+        <div>
+          <span className='username'>
+            {user.name}
+          </span>
+          {' logged in '}
+          <button onClick={logout}>
+            logout
+          </button>
+        </div>
       </div>
-      <span>
-        {user.name} logged in {' '}
-        <button onClick={logout}>
-          logout
-        </button>
-      </span>
-    </div>
+    </header>
   )
 }

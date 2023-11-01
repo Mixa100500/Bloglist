@@ -41,25 +41,31 @@ const App = () => {
 
   const blogs = blogsQuery.data
 
-  const styleMargin = {
-    margin: 'revert'
+  const containerAppStyle = {
+    display: 'flex',
+    flexFlow: 'column wrap',
+    minHeight: '100vh'
   }
 
+  const containerStyle = {
+    flex: '1 1'
+  }
 
   return (
-    <div className='container bg-dark text-white'>
+    <div style={containerAppStyle}>
       <NavBar />
-      <h2 style={styleMargin}>blog app</h2>
-      <Notification />
-      <hr className='new1'></hr>
-
-      <Routes>
-        <Route path='/blogs/:id' element={<Blog />} />
-        <Route path='/users/:id' element={<User />} />
-        <Route path='/users' element={<Users/>} />
-        <Route path='/' element={<Home blogs={blogs} user={user}/>} />
-      </Routes>
-      <hr className='new1'></hr>
+      <main
+        className='container'
+        style={containerStyle}
+      >
+        <Notification />
+        <Routes>
+          <Route path='/blogs/:id' element={<Blog />} />
+          <Route path='/users/:id' element={<User />} />
+          <Route path='/users' element={<Users/>} />
+          <Route path='/' element={<Home blogs={blogs} user={user}/>} />
+        </Routes>
+      </main>
     </div>
   )
 }

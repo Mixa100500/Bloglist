@@ -1,9 +1,153 @@
 :root {
-  /* Dark color scheme */
-  --primary-color: #ffffff;
+  --primary-color: #ced4da;
+  --button-background-color-hover: #74808a;
   --secondary-color: #6c757d;
   --background-color: #343a40;
-  --text-color: #f8f9fa;
+  --text-color: #ffffff;
+  --category-color-background: #8cb4ff70;
+  --category-color-background-even: #3b4147;
+  --category-color: #8cb4ff;
+  --table-background-color-hover: coral;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+header {
+  color: var(--text-color);
+  padding: 1rem;
+  text-align: center;
+}
+
+header a:hover {
+  background-color: var(--category-color-background);
+  color: var(--category-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+table.table {
+  color: var(--text-color);
+}
+
+.list-group {
+  border: 0px;
+  border-radius: 0;
+}
+
+.list-group,
+.list-links {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 0;
+}
+
+.list-group div,
+.list-links div {
+  background-color: inherit;
+  border-top: 0;
+  border: 0;
+}
+
+.list-links div {
+  color: var(--primary-color);
+  padding: 0;
+  border-bottom: 1px solid;
+}
+
+.list-border-bottom div {
+  border-bottom: 1px solid;
+}
+
+.list-border-bottom div:hover {
+  color: var(--text-color);
+  background-color: var(--table-background-color-hover);
+}
+
+.list-group div {
+  color: var(--text-color);
+}
+
+.list-group-link {
+  background-color: inherit;
+  color: var(--primary-color);
+  border-top: 0;
+  padding: 0;
+}
+
+.list-group a {
+  padding: 8px 16px;
+  display: block;
+}
+
+.list-group a:hover {
+  color: var(--text-color);
+  background-color: var(--table-background-color-hover);
+  text-decoration: none;
+}
+
+.striped tr:nth-child(even) {
+  background-color: var(--category-color-background-even);
+}
+
+.table.hover tbody tr:hover {
+  background-color: var(--table-background-color-hover);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+tr.tableHeader {
+  color: var(--text-color);
+  background-color: inherit;
+  text-decoration: none;
+}
+
+.table .link-cell {
+  padding: 0;
+}
+
+.table a {
+  padding: 8px 16px;
+  display: block;
+}
+
+.table a:hover {
+  color: var(--text-color);
+  background-color: var(--table-background-color-hover);
+  text-decoration: none;
+}
+
+tr.tableHeader th {
+  background-color: var(--category-color-background);
+}
+
+main {
+  padding: 2rem;
+}
+
+p {
+  color: var(--text-color);
+}
+
+button {
+  padding: 0.5em 1em;
+  background-color: inherit;
+  color: var(--category-color);
+  text-decoration: underline;
+  border: var(--primary-color) 1px solid;
+  border-radius: 0.3em;
+}
+
+button:hover {
+  padding: calc(0.5em + 1px) calc(1em + 1px);
+  background-color: var(--button-background-color-hover);
+  text-decoration: none;
+  border: 0;
 }
 
 .dark {
@@ -12,35 +156,10 @@
 }
 
 .light-dark {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
-}
-
-body {
-  /* Apply the dark theme to the body element */
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-header {
-  /* Style the header element with the dark theme colors */
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  padding: 1rem;
-  text-align: center;
-}
-
-main {
-  /* Style the main content with the dark theme colors */
-  padding: 2rem;
-}
-
-p {
-  /* Style paragraphs with the dark theme colors */
-  color: var(--text-color);
-}
-
-/* Style links in the navbar */
 .navbar-link {
   color: var(--primary-color);
   text-decoration: none;
@@ -50,23 +169,12 @@ p {
   color: var(--secondary-color);
 }
 
-button {
-  border-radius: 0.3em;
-  background-color: var(--background-color);
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-a {
-  padding: 5;
-  color: inherit;
-}
-
-.new1 {
-  border: solid 1px white;
-}
-
 form input[class='dark form-control']:focus {
   background-color: var(--background-color);
   color: var(--text-color);
+  box-shadow: none;
+}
+
+span.username {
+  color: var(--primary-color);
 }

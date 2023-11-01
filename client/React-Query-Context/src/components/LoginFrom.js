@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLogin } from '../hooks/useLogin'
-import { Card, Form } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 const LoginForm = () => {
   const [password, setPassword] = useState('secret')
@@ -13,9 +13,9 @@ const LoginForm = () => {
   }
 
   return (
-    <Card bg='dark'>
+    <div>
       <Form id='loginForm' onSubmit={handleSumbit}>
-        <Form.Group>
+        <Form.Group controlId='formBasicText'>
           <Form.Label>
             username
           </Form.Label>
@@ -26,6 +26,8 @@ const LoginForm = () => {
             value={username}
             onChange={e => setUsername(e.target.value)}
           />
+        </Form.Group>
+        <Form.Group controlId='formBasicPassword'>
           <Form.Label>
             password
           </Form.Label>
@@ -41,7 +43,7 @@ const LoginForm = () => {
           </button>
         </Form.Group>
       </Form>
-    </Card>
+    </div>
   )
 }
 
