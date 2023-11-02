@@ -15,6 +15,7 @@ logger.info('connected to', config.MONGODB_URI)
 mongoose.connect(config.MONGODB_URI)
 
 app.use(cors())
+app.use(express.static('dist'))
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
@@ -22,6 +23,10 @@ app.use(middleware.tokenExtractor)
 app.use('/api/blogs', middleware.userExtractor, blogsRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+})
 
 if( process.env.NODE_ENV === 'test') {
   const testingRouter = require('./conrtollers/testing')

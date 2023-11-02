@@ -17,10 +17,6 @@ export const Users = () => {
   }
   const users = usersQuery.data
 
-  const styleLink = {
-    color: 'inherit'
-  }
-
   return (
     <div>
       <h2>Users</h2>
@@ -37,10 +33,7 @@ export const Users = () => {
           {users.map(a =>
             <tr key={a.id}>
               <td className='link-cell'>
-                <Link
-                  to={`/users/${a.id}`}
-                  style={styleLink}
-                >
+                <Link to={`/users/${a.id}`}>
                   {a.name}
                 </Link>
               </td>

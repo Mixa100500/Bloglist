@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import usersService from '../../services/users'
 import { Link, useParams } from 'react-router-dom'
-import { Table } from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
 
 const User = () => {
   const { id } = useParams()
@@ -28,22 +28,18 @@ const User = () => {
       {user.blogs.length > 0 ? (
         <>
           <h3>added blogs:</h3>
-          <Table className='striped hover links'>
-            <tbody>
-              {user.blogs.map(b => (
-                <tr key={b.id}>
-                  <td >
-                    <Link
-                      className='link'
-                      to={`/blogs/${b.id}`}
-                    >
-                      {b.title}
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+          <ListGroup className='list-links'>
+            {user.blogs.map(b => (
+              <ListGroup.Item key={b.id}>
+                <Link
+                  className='link'
+                  to={`/blogs/${b.id}`}
+                >
+                  {b.title}
+                </Link>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
         </>
       ) :
         <p>This user has not added any blogs yet.</p>
