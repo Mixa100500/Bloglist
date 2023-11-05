@@ -1,9 +1,19 @@
 import { useState, forwardRef, useImperativeHandle } from 'react'
-import { Button } from './Button'
 import { styled } from 'styled-components'
 
-const SwitchButton = styled(Button)`
-  margin: 0px;
+const SwitchButton = styled.button`
+  background-color: #ff9234;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #ffae5e;
+  }
 `
 const Togglable = forwardRef((props, ref) => {
   const [visible, setVisible] = useState(false)

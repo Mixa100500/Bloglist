@@ -14,11 +14,19 @@ const BlogCard = styled.div`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 `
 
+const BlogListItem = styled.div`
+  margin: 8px;
+`
 
 const BlogContent = styled.div`
   margin-top: 8px;
   padding-top: 8px;
   border-top: 1px solid Chocolate;
+`
+
+const BlogTitle = styled.div`
+  margin: 8px;
+  font-size: 1.2rem;
 `
 
 export const Blog = () => {
@@ -28,7 +36,6 @@ export const Blog = () => {
   const id = useParams().id
   const user = useSelector(state => state.user)
   const blog = blogs.find(blog => blog.id === id)
-
 
   if(!blog) {
     return null
@@ -44,14 +51,16 @@ export const Blog = () => {
 
   return (<>
     <BlogCard>
-      {blog.title} <div>{blog.author}</div>
+      <BlogTitle>{blog.title}</BlogTitle>
       <BlogContent>
-        <div><a href={blog.url}>{blog.url}</a></div>
-        <div>
-          likes {blog.likes}
+        <BlogListItem><a href={blog.url}>{blog.url}</a></BlogListItem>
+        <BlogListItem>
+          likes {blog.likes + ' '}
           <Button onClick={() => like(blog)} >like</Button>
-        </div>
-        <div>added by: {blog.author}</div>
+        </BlogListItem>
+        <BlogListItem>
+          added by: {blog.author}
+        </BlogListItem>
         {canRemove &&<Button onClick={() => remove(blog)}>
           delete
         </Button>}

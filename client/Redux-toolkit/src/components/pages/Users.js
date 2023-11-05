@@ -6,28 +6,51 @@ import { Link } from 'react-router-dom'
 
 const Table = styled.table`
   width: 100%;
+  border: 1px solid BurlyWood;
   border-collapse: collapse;
   margin-bottom: 1em;
 `
 
 const TableHeader = styled.th`
   background: BurlyWood;
-  color: white;
+  color: black;
   padding: 0.5em 1em;
 `
 
 const TableRow = styled.tr`
   &.even {
-    background: lightgray;
+    background: inherit;
   }
 
   &.odd {
-    background: white;
+    background: #ffe2b4;
   }
 `
 
 const TableCell = styled.td`
   padding: 0.5em 1em;
+  text-align: center;
+`
+
+const TableCellLink = styled.td`
+  padding: 0;
+`
+
+const LinkTbale = styled(Link)`
+  padding: 0.5em 1em;
+  text-align: center;
+  display: block;
+  color: black;
+
+  &:hover {
+    background-color: BurlyWood;
+    color: white;
+    text-decoration: none;
+  }
+`
+
+const TitlePage = styled.h2`
+  font-size: 2rem;
 `
 
 export const Users = () => {
@@ -39,9 +62,9 @@ export const Users = () => {
   }, [])
 
   return <>
-    <h2>
+    <TitlePage>
       Users
-    </h2>
+    </TitlePage>
     <Table>
       <thead>
         <tr>
@@ -59,9 +82,9 @@ export const Users = () => {
             className={index % 2 === 0 ? 'even' : 'odd'}
             key={data.id}
           >
-            <TableCell>
-              <Link to={data.id}>{data.username}</Link>
-            </TableCell>
+            <TableCellLink>
+              <LinkTbale to={data.id}>{data.username}</LinkTbale>
+            </TableCellLink>
             <TableCell>
               {data.blogs.length}
             </TableCell>

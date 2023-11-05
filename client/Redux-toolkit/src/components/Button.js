@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  background: Bisque;
-  font-size: 1em;
-  margin: 0.5em;
-  padding: 0.25em 1em;
-  border: 2px solid Chocolate;
-  border-radius: 3px;
+  background-color: #ff9234;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffae5e;
+  }
 `

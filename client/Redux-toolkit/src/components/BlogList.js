@@ -2,24 +2,47 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
-const LinkContainer = styled.div`
-  padding-top: 15px;
-  border: 1px solid Chocolate;
-  margin-top: 5px;
+const ListItem = styled.li`
+  border-bottom: 1px solid Chocolate;
+`
 
-  &:first-child {
-    margin: 0px;
+const ListBlogs = styled.ul`
+  padding: 0;
+  margin: 0;
+  list-style: none;
+`
+
+const ListLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  padding: 1rem 0.5rem;
+  display: block;
+
+  &:hover {
+    background-color: BurlyWood;
+    color: white;
   }
+`
+
+const TitleLink = styled.span`
+  font-size: 1.2rem;
 `
 
 export const BlogList = () => {
   const blogs = useSelector(state => state.blogs)
 
-  return <div>
+  return <ListBlogs>
     {blogs.map(blog =>
-      <LinkContainer key={blog.id}>
-        <Link to={`blog/${blog.id}`} >{`${blog.title} ${blog.author}`}</Link>
-      </LinkContainer>
+      <ListItem key={blog.id}>
+        <ListLink
+          to={`blog/${blog.id}`}
+        >
+          <TitleLink>
+            {`${blog.title} `}
+          </TitleLink>
+          <div>{blog.author}</div>
+        </ListLink>
+      </ListItem>
     )}
-  </div>
+  </ListBlogs>
 }

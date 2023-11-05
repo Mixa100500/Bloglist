@@ -10,7 +10,7 @@ const FormContainer = styled.div`
 `
 
 const FormTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 1em;
 `
 
@@ -51,7 +51,6 @@ const SubmitButton = styled.button`
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
 
   &:hover {
     background-color: #ffae5e;

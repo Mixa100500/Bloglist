@@ -2,11 +2,15 @@ import commetService from '../services/comments'
 import { useParams } from 'react-router-dom'
 import { styled } from 'styled-components'
 import { useField } from '../hooks'
+import { Button } from './Button'
 
 const CommentFormContainer = styled.div`
   background: papayawhip;
-  padding: 0.5em 1em;
   margin-top: 0.5em;
+`
+
+const FormTitle = styled.h3`
+  font-size: 1.2rem;
 `
 
 const CommentForm = styled.form`
@@ -16,20 +20,18 @@ const CommentForm = styled.form`
 `
 
 const CommentTextarea = styled.textarea`
+  box-sizing: border-box;
   width: 100%;
   padding: 0.5em;
   margin-bottom: 0.5em;
   border: 1px solid BurlyWood;
   border-radius: 3px;
-`
+  font-size: 1rem;
 
-const CommentButton = styled.button`
-  background: BurlyWood;
-  color: white;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+  &:focus {
+    border-color: DarkOrange;
+    outline: none;
+  }
 `
 
 export const CommentBlogForm = ({ setComments }) => {
@@ -45,10 +47,10 @@ export const CommentBlogForm = ({ setComments }) => {
 
   return (
     <CommentFormContainer>
-      <h3>Add a Comment</h3>
+      <FormTitle>Add a Comment</FormTitle>
       <CommentForm onSubmit={onSubmit}>
         <CommentTextarea {...field} />
-        <CommentButton type='sumbit'>submit</CommentButton>
+        <Button type='sumbit'>submit</Button>
       </CommentForm>
     </CommentFormContainer>
   )
