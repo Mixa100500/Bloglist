@@ -1,4 +1,4 @@
-<p>This application is available in three versions:</p>
+<p>This client application is deployed in three versions:</p>
 <ul>
   <li><a href='https://bloglist-redux.onrender.com'>Redux</a></li>
   <li><a href='https://bloglist-react-qeury.onrender.com'>React-Query</a></li>
