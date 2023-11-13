@@ -11,6 +11,9 @@ const getHeaders = () => {
 const getAll = async () =>
   axios.get(baseUrl).then(res => res.data)
 
+const getOne = async (id) =>
+  axios.get(`${baseUrl}/${id}`).then(res => res.data)
+
 const create = async object =>
   axios.post(baseUrl, object, { headers: getHeaders() }).then(res => res.data)
 
@@ -20,4 +23,10 @@ const update = async (object) =>
 const remove = (blog) =>
   axios.delete(`${baseUrl}/${blog.id}`, { headers: getHeaders() }).then(res => res.data)
 
-export default { getAll, create, update, remove }
+export default {
+  getAll,
+  create,
+  update,
+  remove,
+  getOne,
+}

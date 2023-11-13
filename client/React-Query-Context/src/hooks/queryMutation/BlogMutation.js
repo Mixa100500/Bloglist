@@ -25,6 +25,7 @@ export const useUpdateBlogMutation = () => {
   return useMutation(blogService.update, {
     onSuccess: (updatedBlog) => {
       const blogs = queryClient.getQueryData('blogs')
+
       queryClient.setQueryData('blogs',
         blogs.map(b => b.id === updatedBlog.id ?
           updatedBlog :

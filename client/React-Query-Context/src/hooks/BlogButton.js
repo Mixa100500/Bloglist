@@ -37,7 +37,7 @@ export const useCreateBlog = (blogFormRef) => {
     try {
       await newBlogMutation.mutateAsync(blog)
       toggleVisiblity()
-      notifyWith(`a new blog ${blog.title} ${blog.author} added`)
+      notifyWith(`a new blog ${blog.title} by ${blog.author} added`)
 
     } catch (error) {
       errorWith(`Error creating blog: ${error}`)

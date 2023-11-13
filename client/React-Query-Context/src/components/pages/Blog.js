@@ -5,11 +5,13 @@ import { useLikeBlog, useRemoveBlog } from '../../hooks/BlogButton'
 import { useUser } from '../../contexts/UserContext'
 import Comments from '../Comments'
 import { ListGroup } from 'react-bootstrap'
+
 const Blog = () => {
-  const { id } = useParams()
-  const blogsQuery = useQuery('blogs', () => blogsService.getAll(id), {
+  const id = useParams().id
+  const blogsQuery = useQuery(['blogs', id], () => blogsService.getOne(id), {
     refetchOnWindowFocus: false
   })
+
   const like = useLikeBlog()
   const remove = useRemoveBlog()
   const user = useUser()
@@ -21,14 +23,15 @@ const Blog = () => {
   if (blogsQuery.isError) {
     return <div>Error loading data. Please try again later.</div>
   }
-  const blogs = blogsQuery.data
 
-  if(!blogs) {
+  const blog = blogsQuery.data
+
+  if(!blog) {
     return null
   }
 
-  const blog = blogs.find(b => b.id === id)
   const canChange = user.username === blog.user.username
+
   return (
     <>
       <h2>

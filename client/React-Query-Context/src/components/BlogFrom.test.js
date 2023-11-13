@@ -5,9 +5,9 @@ import userEvent from '@testing-library/user-event'
 import BlogForm from './BlogForm'
 
 describe('BlogForm', () => {
-  test('if liked twice, ', async () => {
+  test('Calls the onSubmit handler with the correct data.', async () => {
     const createHandler = jest.fn()
-    render(<BlogForm createBlog={createHandler} />)
+    render(<BlogForm manageFrom={[createHandler]} />)
 
     const input = {
       title: 'Goto considered useful',
@@ -17,16 +17,16 @@ describe('BlogForm', () => {
 
     const user = userEvent.setup()
 
-    const titleInput = screen.getByPlaceholderText('title')
+    const titleInput = screen.getByPlaceholderText('Entert title')
     await user.type(titleInput, input.title)
 
-    const authorInput = screen.getByPlaceholderText('author')
+    const authorInput = screen.getByPlaceholderText('Entert author')
     await user.type(authorInput, input.author)
 
-    const urlInput = screen.getByPlaceholderText('url')
+    const urlInput = screen.getByPlaceholderText('Entert url')
     await user.type(urlInput, input.url)
 
-    const showButton = screen.getByText('create')
+    const showButton = screen.getByText('Submit')
     await user.click(showButton)
 
     const calls = createHandler.mock.calls
