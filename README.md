@@ -1,14 +1,14 @@
-<p>This application is available in three versions:</p>
+<p>This client application is deployed in three versions:</p>
 <ul>
-  <li><a href='https://bloglist-redux.onrender.com'>Redux</a></li>
   <li><a href='https://bloglist-react-qeury.onrender.com'>React-Query</a></li>
+  <li><a href='https://bloglist-redux.onrender.com'>Redux</a></li>
   <Li><a href='https://blogs-e1xm.onrender.com'>Redux-toolkit</a></Li>
 </ul>
 <h2>About Client</h2>
 <p>This app has three frontend options:</p>
 <ul>
-  <li>Redux + Material UI</li>
   <li>React-Query + Context + react-bootstrap</li>
+  <li>Redux + Material UI</li>
   <li>Redux-toolkit + styled-components</li>
 </ul>
 <h2>Usage</h2>
